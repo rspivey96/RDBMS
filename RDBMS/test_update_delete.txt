@@ -1,0 +1,29 @@
+CREATE TABLE animals (name VARCHAR(20), kind VARCHAR(8), years INTEGER) PRIMARY KEY (name, kind);
+
+-- These inserts will succeed
+INSERT INTO animals VALUES FROM ("Joe", "cat", 4);
+INSERT INTO animals VALUES FROM ("Spot", "dog", 10);
+INSERT INTO animals VALUES FROM ("Snoopy", "dog", 3);
+INSERT INTO animals VALUES FROM ("Tweety", "bird", 1);
+INSERT INTO animals VALUES FROM ("Joe", "bird", 2);
+
+-- This insert will fail, VARCHAR is too long
+INSERT INTO animals VALUES FROM ("Joe", "birdbirdbird", "2");
+
+-- This insert will fail, "two" is not an INTEGER
+INSERT INTO animals VALUES FROM ("Joe", "birdbirdbird", "two");
+
+SHOW animals;
+
+-- This will fail (Can't have kind == "cat" and "dog" simultaneously)
+UPDATE animals SET kind = "feline", years = "500" WHERE kind=="cat" && kind=="dog";
+
+-- This will succeed
+UPDATE animals SET kind = "4-legged", years = "500" WHERE kind=="cat" || kind=="dog";
+UPDATE animals SET kind = "2-legged" WHERE kind=="bird";
+SHOW animals;
+
+-- This will succeed
+DELETE FROM animals WHERE name == "Tweety" && years==1;
+
+SHOW animals;

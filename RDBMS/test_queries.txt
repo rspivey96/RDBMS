@@ -1,0 +1,42 @@
+CREATE TABLE animals (name VARCHAR(14), kind VARCHAR(10), years INTEGER) PRIMARY KEY (name, kind);
+INSERT INTO animals VALUES FROM ("Joe", "cat", 4);
+INSERT INTO animals VALUES FROM ("Spot", "dog", 10);
+INSERT INTO animals VALUES FROM ("Snoopy", "dog", 3);
+INSERT INTO animals VALUES FROM ("Tweety", "bird", 1);
+INSERT INTO animals VALUES FROM ("Joe", "bird", 2);
+INSERT INTO animals VALUES FROM ("Joe", "birdbirdbird", "2");
+SHOW animals;
+
+CREATE TABLE animals2 (name VARCHAR(14), kind VARCHAR(10), years INTEGER) PRIMARY KEY (name, kind);
+INSERT INTO animals2 VALUES FROM ("Joe", "cat", 4);
+INSERT INTO animals2 VALUES FROM ("Tweety", "bird", 1);
+INSERT INTO animals2 VALUES FROM ("Reed", "lizard", 4);
+INSERT INTO animals2 VALUES FROM ("Jason", "otter", 8);
+SHOW animals2;
+
+CREATE TABLE animals3 (name VARCHAR(14), kind VARCHAR(10), extinct VARCHAR(5) PRIMARY KEY (name, kind);
+INSERT INTO animals3 VALUES FROM ("Joe", "cat", "no");
+INSERT INTO animals3 VALUES FROM ("Tweety", "bird", "no");
+INSERT INTO animals3 VALUES FROM ("Reed", "lizard", "yes");
+INSERT INTO animals3 VALUES FROM ("Jason", "otter", "yes");
+SHOW animals3;
+
+rename_test <- rename (rName, rKind, rYears) animals;
+SHOW rename_test;
+
+project_test <- project (kind) animals;
+SHOW project_test;
+
+union_test <- animals + animals2;
+SHOW union_test;
+
+difference_test <- animals - animals2;
+SHOW difference_test;
+
+product_test <- animals * animals2;
+SHOW product_test;
+
+join_test <- animals JOIN animals3;
+SHOW join_test;
+
+EXIT;

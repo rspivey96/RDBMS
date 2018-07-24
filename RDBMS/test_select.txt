@@ -1,0 +1,16 @@
+CREATE TABLE animals (name VARCHAR(20), kind VARCHAR(8), years INTEGER) PRIMARY KEY (name, kind);
+INSERT INTO animals VALUES FROM ("Joe", "cat", 4);
+INSERT INTO animals VALUES FROM ("Spot", "dog", 10);
+INSERT INTO animals VALUES FROM ("Snoopy", "dog", 3);
+INSERT INTO animals VALUES FROM ("Tweety", "bird", 1);
+INSERT INTO animals VALUES FROM ("Joe", "bird", 2);
+
+-- This will fail (no years less than 0)
+select_test1 <- select (kind == "dog" && years<0) animals;
+
+-- This will succeed
+select_test2 <- select (kind == "dog" && years>0) animals;
+
+SHOW select_test2;
+
+SHOW select (kind == "dog" && years>0) animals;
